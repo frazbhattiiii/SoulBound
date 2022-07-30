@@ -68,3 +68,25 @@ export const HeroImage = styled("img")(({ src, theme }) => ({
         height: "300px",
     },
 }));
+export const ScrollBox = styled(Box)(({ theme }) => ({
+    display:'flex',
+    flexDirection:'row',
+    flexWrap:'wrap',
+    justifyContent:'center',
+    alignItems:'center',
+}))
+export const SectionTitle = styled(Typography)(({theme})=>({
+        color:Colors.primary,
+        fontSize:"2rem",
+        fontFamily: '"Alata", sans-serif',
+        margin:'1rem 0 0 8rem',
+        [theme.breakpoints.down("lg")]: {
+            margin:'0 0 0 2rem',
+        },
+            [theme.breakpoints.down("md")]: {
+            display:'flex',
+           justifyContent:'center',
+                alignItems:'center',
+                margin:'0',
+}
+}))
