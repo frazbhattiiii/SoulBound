@@ -50,10 +50,10 @@ export const ImageContainer = styled(Box)(({theme})=>({
     display:'flex',
     [theme.breakpoints.down("md")]: {
         flexDirection:'column',
-        marginTop:'-1rem',
+        marginTop:'-2.2rem',
     },
     flexDirection:'row',
-    marginTop:'-30rem',
+    marginTop:'-33rem',
     justifyContent:'flex-end',
 }))
 

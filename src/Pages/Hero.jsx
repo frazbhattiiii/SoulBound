@@ -6,9 +6,11 @@ import NavBar from "../Components/NavBar";
 function Hero ( props ){
     return (
         <>
-            <NavBar/>
-            <HeroCurve>
 
+            <HeroCurve sx={{
+                // marginTop:'2rem',
+            }}>
+                <NavBar/>
             <HeroSection/>
             </HeroCurve>
         </>
