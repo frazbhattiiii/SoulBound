@@ -10,14 +10,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Dialog from '@mui/material/Dialog';
 import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
-import BusinessIcon from '@mui/icons-material/Business';
+import ApartmentIcon from '@mui/icons-material/Apartment';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
 
-const emails = ['Register ', 'user02@gmail.com'];
-
 export default function LoginDialog() {
-    // const {} = React.useState(true);
     const [open,setOpen] = React.useState(true);
     console.log(open)
 
@@ -47,7 +44,7 @@ export default function LoginDialog() {
                 <ListItem button onClick={() => handleListItemClick('company')}>
                     <ListItemAvatar>
                         <Avatar sx={{ backgroundColor: blue[100], color: blue[600] }}>
-                            <BusinessIcon />
+                            <ApartmentIcon />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={'As a Company'} />
