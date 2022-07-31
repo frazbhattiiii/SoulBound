@@ -13,10 +13,65 @@ import AddIcon from '@mui/icons-material/Add';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
+import { toast , ToastContainer } from "react-toastify";
+import { GAS_LIMIT , SBT } from "../../Web3Client";
+import ToastBox from "../../utils/ToastContainer";
+import { useState } from "react";
 
 export default function LoginDialog() {
     const [open,setOpen] = React.useState(true);
+    const [address, setAddress] = useState("");
     console.log(open)
+    function connectWallet() {
+        if (typeof window.ethereum !== 'undefined') {
+            window.ethereum.request({ method: 'eth_requestAccounts' })
+                  .then((accounts) => {
+                      toast(`Account connected: ${accounts[0]}`)
+                      setAddress(accounts[0])
+                  })
+                  .catch((err) => {
+                      toast('Some Thing went wrong');
+                      console.log(err);
+                      return;
+                  });
+
+            window.ethereum.on('accountsChanged', function (accounts) {
+                console.log(`Account changed: ${accounts[0]}`)
+                toast(`Account changed: ${accounts[0]}`)
+                setAddress(accounts[0])
+            });
+        } else {
+            console.log(`MetaMask not detected!`)
+            toast('Please install MetaMask');
+        }
+    }
+
+    async function login() {
+        if (address === "") {
+            console.log("Connect MetaMask to continue!")
+            return;
+        }
+
+        try {
+            let isRegistered = await SBT.methods.getCountIssued().call({from: address, gas: GAS_LIMIT});
+            if (parseInt(isRegistered) !== 0) {
+                toast('Already registered!');
+                console.log("Already registered!")
+            } else {
+                await SBT.methods.registerCompany().send({from: address, gas: GAS_LIMIT}).then(
+                    async (tx) => {
+                        let result = await SBT.methods.getCountIssued().call({from: address, gas: GAS_LIMIT});
+                        if (parseInt(result) === 1) {
+                            toast('Company Registered!');
+                            console.log("Company Registered!")
+                        }
+                    }
+                );
+            }
+        } catch(err) {
+            console.log(err)
+        }
+    }
 
     const handleClose = () => {
         setOpen(false);
@@ -24,13 +79,16 @@ export default function LoginDialog() {
     };
 
     const handleListItemClick = (value) => {
-        console.log(value)
-        setOpen(false);
+        connectWallet();
+        login();
     };
 
 
     return (
+        <>
+            <ToastBox />
         <Dialog onClose={handleClose} open={open}>
+
             <DialogTitle>Login as</DialogTitle>
             <List sx={{ pt: 0 }}>
                     <ListItem button onClick={() => handleListItemClick('user')}>
@@ -51,6 +109,7 @@ export default function LoginDialog() {
                 </ListItem>
             </List>
         </Dialog>
+        </>
     );
 }
 

@@ -40,7 +40,7 @@ function ScrollComponent ( props ) {
                             marginLeft:{md:'6rem'},
                         }}>
                             <SmallImage src='/images/eth.png' size='80'/>
-                            <Description variant="h6">
+                            <Description variant="h6" component='span'>
                             SoulBound
                                 is a platform where professionals demonstrate their work, get verified, give tenable endorsements, get into communities, and more - everything on the blockchain!
                             </Description>

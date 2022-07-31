@@ -10,6 +10,8 @@ import { SBT , GAS_LIMIT } from "../../Web3Client";
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import LoginDialog from "../LoginDialogue";
 import { Link , useNavigate } from "react-router-dom";
+import ToastBox from "../../utils/ToastContainer";
+import {toast} from 'react-toastify';
 export default function NavBar() {
     const navigate = useNavigate();
     
@@ -19,6 +21,8 @@ export default function NavBar() {
             window.ethereum.request({ method: 'eth_requestAccounts' })
             .then((accounts) => {
                 console.log(`Account connected: ${accounts[0]}`)
+                toast("Account connected: " + accounts[0])
+
                 setAddress(accounts[0])
             })
             .catch((err) => {
@@ -27,10 +31,12 @@ export default function NavBar() {
             });
         
             window.ethereum.on('accountsChanged', function (accounts) {
+                toast(`Account Changed: ${accounts[0]}`)
                 console.log(`Account changed: ${accounts[0]}`)
                 setAddress(accounts[0])
             });
         } else {
+            toast('Please install MetaMask');
             console.log(`MetaMask not detected!`)
         }
     }
@@ -65,7 +71,9 @@ export default function NavBar() {
     }
 
     return (
+        <>
         <Box sx={{ flexGrow: 1}}>
+            <ToastBox/>
             <AppBar position="static" sx={{backgroundColor:'#01021f'}}>
                 <Toolbar>
                     <IconButton
@@ -84,14 +92,11 @@ export default function NavBar() {
                         backgroundColor:'white',
                         cursor:'pointer',
                         color:'black'
-                    }} onClick={()=>login()}>Login</Button>
-                    <Button color="inherit" variant='contained' sx={{
-                        backgroundColor:'white',
-                        cursor:'pointer',
-                        color:'black'
-                    }} onClick={()=>connectWallet()}>Connect</Button>
+                    }} onClick={()=>check()}>Login</Button>
+
                 </Toolbar>
             </AppBar>
         </Box>
+        </>
     );
 }
