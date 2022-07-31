@@ -4,7 +4,7 @@ import { Colors } from "../Theme";
 export const FlexBox = styled(Typography)(({theme})=>({
     display:'flex',
     flexDirection:'row',
-    // flexWrap:'wrap',
+    flexWrap:'wrap',
     justifyContent:'center',
     alignItems:'center',
 

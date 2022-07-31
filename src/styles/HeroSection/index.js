@@ -10,7 +10,11 @@ export const HeroContainer = styled(Box)(({theme})=>({
     marginLeft:'2rem',
         [theme.breakpoints.down("md")]: {
            marginLeft:"1rem",
-            width:'25rem',
+            width:'22rem',
+    },
+    [theme.breakpoints.down("sm")]: {
+        marginLeft:"1rem",
+        width:'18rem',
     },
 }))
 export const HeroCurve = styled(Box)(({theme})=>({
@@ -23,7 +27,7 @@ export const HeroCurve = styled(Box)(({theme})=>({
         height: "38rem",
     },
     [theme.breakpoints.down("sm")]: {
-        height: "35rem",
+        height: "38rem",
     },
 }))
 
@@ -32,7 +36,7 @@ export const HeroTitle = styled(Typography)(({theme})=>({
    fontSize:"3rem",
     fontFamily: '"Alata", sans-serif',
     [theme.breakpoints.down("md")]: {
-       fontSize:"2.5rem",
+       fontSize:"2rem",
     }
 }))
 export const HeroDescription = styled(Typography)(({theme})=>({
@@ -42,7 +46,10 @@ export const HeroDescription = styled(Typography)(({theme})=>({
     marginTop:'1rem',
     [theme.breakpoints.down("md")]: {
         fontSize:"1rem",
-    }
+    },
+        [theme.breakpoints.down("sm")]: {
+    fontSize:".75rem",
+}
 
 }))
 
@@ -65,7 +72,7 @@ export const HeroImage = styled("img")(({ src, theme }) => ({
     },
     [theme.breakpoints.down("sm")]: {
         width: "320px",
-        height: "300px",
+        height: "280px",
     },
 }));
 export const ScrollBox = styled(Box)(({ theme }) => ({
@@ -89,4 +96,20 @@ export const SectionTitle = styled(Typography)(({theme})=>({
                 alignItems:'center',
                 margin:'0',
 }
+}))
+export const SectionTitle1 = styled(Typography)(({theme})=>({
+    color:Colors.primary,
+    // marginLeft:'3rem',
+    fontSize:'1.7rem',
+    fontFamily: '"Alata", sans-serif',
+    margin:'1rem 0 0 2rem',
+    [theme.breakpoints.down("lg")]: {
+        margin:'0 0 0 2rem',
+    },
+    [theme.breakpoints.down("md")]: {
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        margin:'0',
+    }
 }))
