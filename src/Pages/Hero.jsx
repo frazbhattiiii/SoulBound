@@ -30,7 +30,6 @@ function Hero ( props ) {
                     <Scroll3/>
                 </Grid>
                 <Grid item sx={ {
-                    // paddingRight : { md : "0" , xs : "3rem" } ,
                     display:{xl:'block', lg:'block', md : "none",sm:'none' , xs : "none" },
                     marginTop : { xl : '20rem' , lg : "15rem" , md : "12rem" , sm : "0" , xs : "0" } ,
                     marginLeft : { xl : '20rem' , lg : "6rem"} ,

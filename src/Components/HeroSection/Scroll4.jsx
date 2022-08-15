@@ -4,6 +4,7 @@ import { useInView }                                       from "react-intersect
 import { Box , Divider , Grid , Typography }               from "@mui/material";
 import { FlexBox , Description , SmallImage , LargeImage } from "../../styles/General";
 import CustomCard                                          from "../../utils/Card";
+import { SectionTitle } from "../../styles/HeroSection";
 
 function ScrollComponent4 ( props ) {
     const data = [
@@ -60,6 +61,9 @@ function ScrollComponent4 ( props ) {
                     } }
 
                 >
+                    <SectionTitle>
+                        Why SoulBound?
+                    </SectionTitle>
 
                     <FlexBox sx={ {
                         marginTop : "2rem"
