@@ -2,148 +2,105 @@ import { Box , IconButton , styled , Typography } from "@mui/material";
 import { Colors } from "../Theme";
 import Button from "@mui/material/Button";
 import "@fontsource/alata";
+import ApartmentIcon from "@mui/icons-material/Apartment";
 
 export const HeaderContainer = styled ( Box ) ( ( { theme } ) => (
     {
-        backgroundColor : 'white' ,
-        margin : '2rem 4rem 1rem 3rem' ,
-        [ theme.breakpoints.down ( "sm" ) ] : {
-            margin : '2rem 1rem 1rem 1rem' ,
-        } ,
-        boxShadow : '0 4px 8px 0 rgba(0,0,0,0.2)' ,
-    }
-) )
-
-export const FlexContainer = styled ( Box ) ( ( { theme } ) => (
-    {
         display : 'flex' ,
-        flexDirection : 'row' ,
+        flexDirection : 'column' ,
+        width : '80%' ,
+        margin:"2rem auto" ,
         [ theme.breakpoints.down ( "md" ) ] : {
-            flexDirection : 'column' ,
-        }
+           width:'100%',
+              margin:'0 1rem 0 0'
+        } ,
     }
 ) )
-
-export const RowFlex = styled ( Box ) ( ( { theme } ) => (
+export const BackgroundImageContainer = styled ( Box ) ( ( { theme } ) => (
     {
+        margin : '0 2rem' ,
+        padding : "0" ,
+        width : 'auto' ,
         display : 'flex' ,
-        flexDirection : 'row' ,
-        justifyContent : 'space-between'
+        boxShadow : '0px 0px 10px rgba(0,0,0,0.3)' ,
+        flexDirection : 'column' ,
+        backgroundColor : '#fff' ,
     }
-) )
+) );
+export const BackgroundImage = styled ( "img" ) ( ( { theme } ) => (
+    {
+        width : '100%' ,
+        height : '12rem' ,
+    }
+) );
 export const ProfileImage = styled ( "img" ) ( ( { theme } ) => (
     {
-        height : '15rem' ,
+        width : '9rem' ,
+        height : '9rem' ,
+        borderRadius : '5rem' ,
+        backgroundColor : 'black' ,
+        position : 'absolute' ,
+        marginLeft : '3rem' ,
+        marginTop : '5.5rem' ,
+        border : '.15rem solid white' ,
+    }
+) );
+export const ProfileHeaderContainer = styled ( Box ) ( ( { theme } ) => (
+    {
+        display : 'flex' ,
+        flexDirection : 'row',
+        flexWrap: 'wrap' ,
+    }
+) );
+export const ProfileSectionContainer = styled ( Box ) ( ( { theme } ) => (
+    {
+        margin : '3rem 0 0 2rem' ,
         [ theme.breakpoints.down ( "md" ) ] : {
-            height : '13rem'
-        }
-    }
-) )
-export const ProfileName = styled ( Typography ) ( ( { theme } ) => (
-    {
-        padding : '2rem' ,
-        fontSize : '1.8rem' ,
-        fontFamily : "Alata" ,
-        [ theme.breakpoints.down ( "md" ) ] : {
-            padding : "1rem" ,
-            fontSize : '1.2rem' ,
-        }
-    }
-) )
-
-export const LinkContainer = styled ( Box ) ( ( { theme } ) => (
-                                                  {
-                                                      display : 'flex' ,
-                                                      margin : '1rem' ,
-                                                  }
-                                              )
-)
-export const ProfileLink = styled ( Typography ) ( ( { theme } ) => (
-    {
-
-
-        color : 'lightbrown' ,
-        padding : '1rem' ,
-        fontSize : '.95rem' ,
-        [ theme.breakpoints.down ( "md" ) ] : {
-            padding : "1rem" ,
-            fontSize : '1rem' ,
-        }
-    }
-) )
-export const EditButton = styled ( IconButton ) ( ( { theme } ) => (
-    {
-        '&:hover' : {
-            transition : "ease-out .5s" ,
-            backgroundColor : Colors.primary ,
-            color : 'white'
-        },
-        '&::after' : {
-            transition : "ease-out .5s" ,
-            backgroundColor : 'white'
-        }
-    }
-) )
-export const Skill = styled ( Box ) ( ( { theme } ) => (
-    {
-        background : 'lightgray' ,
-        width : '11rem' ,
-        margin : '1rem 0 0 1rem' ,
-        padding : '1rem' ,
-        borderRadius : '1rem' ,
-        color : 'brown' ,
-        fontSize : '1rem' ,
-        cursor : 'pointer' ,
-        '&:hover' : {
-            color : 'black' ,
-            transition : 'ease-in 0.5s' ,
-            background : 'navajowhite'
+            margin : '3rem 0 0 1rem' ,
         } ,
-        [ theme.breakpoints.down ( "md" ) ] : {
-            marginTop : '1rem' ,
-        }
     }
-) )
-export const EditButtonContainer= styled ( Box ) ( ( { theme } ) => (
+) );
+export const ProfileTitleName = styled ( Box ) ( ( { theme } ) => (
     {
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:"flex-end"
+        fontSize:'1.5rem',
+        fontWeight:'400',
     }
-) )
-
-export const RightBlock = styled ( Box ) ( ( { theme } ) => (
+) );
+export const ProfileHeadline = styled ( Box ) ( ( { theme } ) => (
     {
-        display:'flex',
-        flexDirection:"column",
-        justifyContent:'space-between',
+        color:"brown"
     }
-) )
-export const ButtonContainer = styled ( Box ) ( ( { theme } ) => (
+) );
+export const ProfileAddress = styled ( Box ) ( ( { theme } ) => (
     {
-        display:'flex',
-        flexDirection:"row",
-        margin:"0 1rem 2rem 0",
-        gap:'2',
+        color : "darkslategray" ,
+        paddingTop : '.5rem' ,
+    }
+) );
+export const ProfileSection2Container= styled ( Box ) ( ( { theme } ) => (
+    {
+        margin : '2rem 2rem' ,
+        display : 'flex' ,
+        flexDirection : 'row' ,
+        alignItems : 'center' ,
+        justifyContent : 'flex-start' ,
+    }
+) );
+export const CompanyImage = styled ( "img" ) ( ( { theme } ) => (
+    {
+        width : '30px',
+        paddingTop:'.25rem',
         [ theme.breakpoints.down ( "lg" ) ] : {
-            flexDirection:'column'
-        },
-        [ theme.breakpoints.down ( "md" ) ] : {
-            display:'none'
+            display:'none',
         }
     }
-) )
-
-export const OutlinedButton = styled ( Button ) ( ( { theme } ) => (
+) );
+export const CompanyIcon = styled ( ApartmentIcon ) ( ( { theme } ) => (
     {
-        margin:'0 1rem 0 1rem',
+        width : '30px',
+        color : 'dodgerblue',
         [ theme.breakpoints.down ( "lg" ) ] : {
-            marginTop:'1rem',
-        },
-        '&:hover':{
-            backgroundColor:Colors.primary,
-            color:'white'
+            display:'none',
         }
-
     }
-) )
+) );

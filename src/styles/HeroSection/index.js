@@ -15,7 +15,7 @@ export const HeroContainer = styled ( Box ) ( ( { theme } ) => (
         },
         [ theme.breakpoints.down ( "sm" ) ] : {
             marginLeft : "1rem",
-            width : '18rem',
+            width : '17rem',
         },
     }
 ) )
@@ -32,7 +32,7 @@ export const HeroCurve = styled ( Box ) ( ( { theme } ) => (
         },
         [ theme.breakpoints.down ( "sm" ) ] : {
             height : "40rem",
-            width:'26rem'
+            width:'100%'
         },
     }
 ) )
