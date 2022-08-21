@@ -7,6 +7,7 @@ function ProfileComponent ( props ){
         <>
         <NavBar/>
             <ProfileHeader/>
+
         </>
     );
 }

@@ -3,7 +3,7 @@ import { motion , useAnimation }                           from "framer-motion";
 import { useInView }                                       from "react-intersection-observer";
 import { Box , Divider , Grid , Typography }               from "@mui/material";
 import { FlexBox , Description , SmallImage , LargeImage } from "../../styles/General";
-import CustomCard                                          from "../../utils/Card";
+import CustomCard                                          from "../shared/Card";
 import { SectionTitle } from "../../styles/HeroSection";
 
 function ScrollComponent4 ( props ) {

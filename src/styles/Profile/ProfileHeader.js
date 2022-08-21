@@ -31,6 +31,13 @@ export const BackgroundImage = styled ( "img" ) ( ( { theme } ) => (
     {
         width : '100%' ,
         height : '12rem' ,
+        objectFit : 'cover' ,
+        opacity : '1' ,
+        cursor:'pointer',
+        '&:hover' : {
+            cursor : 'pointer' ,
+            opacity:   '0.2' ,
+        },
     }
 ) );
 export const ProfileImage = styled ( "img" ) ( ( { theme } ) => (
@@ -43,6 +50,7 @@ export const ProfileImage = styled ( "img" ) ( ( { theme } ) => (
         marginLeft : '3rem' ,
         marginTop : '5.5rem' ,
         border : '.15rem solid white' ,
+        objectFit : 'cover' ,
     }
 ) );
 export const ProfileHeaderContainer = styled ( Box ) ( ( { theme } ) => (

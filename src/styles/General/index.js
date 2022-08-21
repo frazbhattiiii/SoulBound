@@ -67,3 +67,11 @@ export const StyledLink = styled ( Link ) ( ( {  theme } ) => (
         },
     }
 ) )
+export const OverlayContainer = styled('div')`
+
+  position: relative;
+  width: 100%;
+  :hover{
+    opacity: 1;
+  }
+`;

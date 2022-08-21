@@ -10,7 +10,7 @@ import { SBT , GAS_LIMIT }    from "../../Web3Client";
 import CurrencyBitcoinIcon    from '@mui/icons-material/CurrencyBitcoin';
 import LoginDialog            from "../LoginDialogue";
 import { Link , useNavigate } from "react-router-dom";
-import ToastBox               from "../../utils/ToastContainer";
+import ToastBox               from "../shared/ToastContainer";
 import { toast }              from 'react-toastify';
 
 export default function NavBar () {

@@ -15,7 +15,7 @@ import Typography                 from '@mui/material/Typography';
 import { blue }                   from '@mui/material/colors';
 import { toast , ToastContainer } from "react-toastify";
 import { GAS_LIMIT , SBT }        from "../../Web3Client";
-import ToastBox                   from "../../utils/ToastContainer";
+import ToastBox                   from "../shared/ToastContainer";
 import { useState }               from "react";
 
 export default function LoginDialog () {
