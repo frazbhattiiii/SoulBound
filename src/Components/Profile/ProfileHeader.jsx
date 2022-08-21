@@ -28,6 +28,9 @@ function ProfileHeader ( props ){
             setOpenCrop ( true );
         }
     };
+    const handleProfilePicture =()=>{
+
+    }
     return (
         <>
             <HeaderContainer>
@@ -83,7 +86,7 @@ function ProfileHeader ( props ){
                         </ProfileSection2Container>
                     </ProfileHeaderContainer>
                 </BackgroundImageContainer>
-                <ProfileImage src={profilePic}/>
+                <ProfileImage src={profilePic} onClick={handleProfilePicture}/>
             </HeaderContainer>
         </>
     );
