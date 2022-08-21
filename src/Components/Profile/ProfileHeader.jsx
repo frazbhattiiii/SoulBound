@@ -12,26 +12,34 @@ import Stack from "@mui/material/Stack";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import backgroundImagePic from '../../assets/images/backgroundImage.jpg';
 import profilePic from '../../assets/images/profile.jpeg';
+import ProfileDialouge from "./ProfileImage/ProfileDialouge";
+import { useDispatch , useSelector } from "react-redux";
+import { setBackgroundImage } from "../../features/user/userSlice";
+
+
 function ProfileHeader ( props ){
+    const dispatch = useDispatch();
     const [ openCrop , setOpenCrop ] = useState ( false );
-    const [backgroundImage, setBackgroundImage] = useState ( backgroundImagePic );
-    const [profileImage, setProfileImage] = useState ( profilePic );
+    const {backgroundImage,profileImage} = useSelector ( state => state.user );
     const [ file , setFile ] = useState ( null );
     const [ photoURL , setPhotoURL ] = useState ( '' );
+    const [openProfileModal, setOpenProfileModal] = useState ( false );
     const handleChange = ( e ) => {
         const file = e.target.files[ 0 ];
         if ( file ) {
             setFile ( file );
-            console.log(file)
-            setBackgroundImage(URL.createObjectURL(file));
+            console.log(file);
+            dispatch(setBackgroundImage(URL.createObjectURL(file)))
             setPhotoURL ( URL.createObjectURL ( file ) );
             setOpenCrop ( true );
         }
     };
     const handleProfilePicture =()=>{
-
+      setOpenProfileModal(true)
     }
     return (
+        <>
+        {!openProfileModal?
         <>
             <HeaderContainer>
                 <BackgroundImageContainer>
@@ -88,6 +96,7 @@ function ProfileHeader ( props ){
                 </BackgroundImageContainer>
                 <ProfileImage src={profilePic} onClick={handleProfilePicture}/>
             </HeaderContainer>
+        </>:<ProfileDialouge/>}
         </>
     );
 }
