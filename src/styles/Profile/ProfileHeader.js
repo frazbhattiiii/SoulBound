@@ -51,6 +51,7 @@ export const ProfileImage = styled ( "img" ) ( ( { theme } ) => (
         marginTop : '5.5rem' ,
         border : '.15rem solid white' ,
         objectFit : 'cover' ,
+        cursor:'pointer',
     }
 ) );
 export const ProfileHeaderContainer = styled ( Box ) ( ( { theme } ) => (

@@ -15,6 +15,7 @@ import profilePic from '../../assets/images/profile.jpeg';
 import ProfileDialouge from "./ProfileImage/ProfileDialouge";
 import { useDispatch , useSelector } from "react-redux";
 import { setBackgroundImage } from "../../features/user/userSlice";
+import Button from "@mui/material/Button";
 
 
 function ProfileHeader ( props ){
@@ -93,6 +94,34 @@ function ProfileHeader ( props ){
                             </Box>
                         </ProfileSection2Container>
                     </ProfileHeaderContainer>
+                    <Box sx={{
+                        margin:"1rem 2rem",
+                        display:'flex',
+                        gap:"1rem",
+                    }}>
+                       <Button sx={{
+                           backgroundColor:"purple",
+                            color:"white",
+                            borderRadius:"20px",
+                           "&:hover":{
+                                 backgroundColor:"rebeccapurple",
+                                    color:"white",
+                           }
+                       }}>
+                           Open to
+                       </Button>
+                        <Button sx={{
+                            color:"purple",
+                            borderRadius:"20px",
+                            "&:hover":{
+                                backgroundColor:"rebeccapurple",
+                                color:"white",
+                            }
+                        }} variant={'outlined'}>
+                            Add Profile Section
+                        </Button>
+
+                    </Box>
                 </BackgroundImageContainer>
                 <ProfileImage src={profilePic} onClick={handleProfilePicture}/>
             </HeaderContainer>
