@@ -14,8 +14,9 @@ import Stack from "@mui/material/Stack";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { useDispatch , useSelector } from "react-redux";
 import {
-    openEditForm , openImageProfileDialogue , setBackgroundImage , setProfileImage
+  setBackgroundImage , setProfileImage
 } from "../../../features/user/userSlice";
+import { openEditForm,openImageProfileDialogue } from "../../../features/general/appSlice";
 import Button from "@mui/material/Button";
 import EditButton from "../../shared/EditButton";
 import { EditButtonContainer } from "../../../styles/General";

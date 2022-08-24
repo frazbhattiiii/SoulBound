@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import EditForm from "./EditForm";
 import { useDispatch , useSelector } from "react-redux";
-import { closeEditFrom } from "../../../features/user/userSlice";
+import { closeEditFrom } from "../../../features/general/appSlice";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function EditProfileForm() {
     const [open, setOpen] = React.useState(true);
     const dispatch = useDispatch();
-    const {editForm} = useSelector(state => state.user);
+    const {editForm} = useSelector(state => state.app);
 
     const handleClose = () => {
         dispatch(closeEditFrom());

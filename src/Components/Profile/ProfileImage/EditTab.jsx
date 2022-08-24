@@ -2,8 +2,8 @@ import React , { useState } from 'react';
 import { Box } from "@mui/material";
 import { useDispatch , useSelector } from "react-redux";
 import Button from "@mui/material/Button";
-import { closeImageProfileDialogue , setProfileImage } from "../../../features/user/userSlice";
-import { useNavigate } from "react-router-dom";
+import { closeImageProfileDialogue } from "../../../features/general/appSlice";
+import { setProfileImage } from "../../../features/user/userSlice";
 import ToastBox from "../../shared/ToastContainer";
 import { toast } from "react-toastify";
 

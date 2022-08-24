@@ -9,7 +9,7 @@ import Slide from '@mui/material/Slide';
 import EditTab from "./EditTab";
 import { useNavigate } from "react-router-dom";
 import { useDispatch , useSelector } from "react-redux";
-import { closeImageProfileDialogue } from "../../../features/user/userSlice";
+import { closeImageProfileDialogue } from "../../../features/general/appSlice";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -18,7 +18,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function ImageChangeDialogue() {
     const [open, setOpen] = React.useState(true);
     const dispatch = useDispatch();
-    const {imageProfileDialogue} = useSelector(state => state.user);
+    const {imageProfileDialogue} = useSelector(state => state.app);
     const navigate = useNavigate();
     const handleClickOpen = () => {
         setOpen(true);
