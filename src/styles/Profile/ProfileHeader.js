@@ -113,3 +113,33 @@ export const CompanyIcon = styled ( ApartmentIcon ) ( ( { theme } ) => (
         }
     }
 ) );
+
+export const ButtonContainer = styled ( Box ) ( ( { theme } ) => (
+    {
+        margin:"1rem 2rem",
+        display:'flex',
+        flexWrap:'wrap',
+        gap:"1rem",
+    }
+));
+
+export const OpenToButton = styled ( Button ) ( ( { theme } ) => (
+    {
+        backgroundColor:"purple",
+        color:"white",
+        borderRadius:"20px",
+        "&:hover":{
+            backgroundColor:"rebeccapurple",
+            color:"white",
+        }
+    }
+));
+export const OutlinedButton = styled ( Button ) ( ( { theme } ) => (
+    {
+        color:"purple",
+        borderRadius:"20px",
+        "&:hover":{
+            backgroundColor:"rebeccapurple",
+            color:"white",
+        }
+    }));

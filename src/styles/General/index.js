@@ -67,11 +67,13 @@ export const StyledLink = styled ( Link ) ( ( {  theme } ) => (
         },
     }
 ) )
-export const OverlayContainer = styled('div')`
+export const EditButtonContainer = styled(Box)(({theme})=> ({
+ position:'relative',
+display:'flex',
+    flexDirection:'row',
+    marginTop:'-7.5rem',
+    marginRight:'0',
+    marginLeft:'9rem',
+    justifyContent:'flex-end',
 
-  position: relative;
-  width: 100%;
-  :hover{
-    opacity: 1;
-  }
-`;
+}));

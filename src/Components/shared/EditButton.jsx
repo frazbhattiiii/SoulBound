@@ -6,9 +6,11 @@ const StyledIconButton = styled(IconButton)`
   width:3rem;
   height:3rem;
   border-radius:2rem;
-  background:white;
+  background:#ccc;
   :hover{
-    background:floralwhite;
+    background:#999999;
+    transition: all ease-in-out .3s;
+    color:floralwhite;
   }
 `;
 function EditButton ( props ){
