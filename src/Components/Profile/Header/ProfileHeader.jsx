@@ -8,18 +8,17 @@ import {
     ProfileHeadline , ProfileImage ,
     ProfileSection2Container ,
     ProfileSectionContainer , ProfileTitleName
-} from "../../styles/Profile/ProfileHeader";
+} from "../../../styles/Profile/ProfileHeader";
 import { Link } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import backgroundImagePic from '../../assets/images/backgroundImage.jpg';
-import profilePic from '../../assets/images/profile.jpeg';
-import ProfileDialouge from "./ProfileImage/ProfileDialouge";
 import { useDispatch , useSelector } from "react-redux";
-import { setBackgroundImage } from "../../features/user/userSlice";
+import {
+    openEditForm , openImageProfileDialogue , setBackgroundImage , setProfileImage
+} from "../../../features/user/userSlice";
 import Button from "@mui/material/Button";
-import EditButton from "../shared/EditButton";
-import { EditButtonContainer } from "../../styles/General";
+import EditButton from "../../shared/EditButton";
+import { EditButtonContainer } from "../../../styles/General";
 
 
 function ProfileHeader ( props ){
@@ -28,7 +27,6 @@ function ProfileHeader ( props ){
     const { backgroundImage , profileImage } = useSelector ( state => state.user );
     const [ file , setFile ] = useState ( null );
     const [ photoURL , setPhotoURL ] = useState ( '' );
-    const [ openProfileModal , setOpenProfileModal ] = useState ( false );
     const handleChange = ( e ) => {
         const file = e.target.files[ 0 ];
         if ( file ) {
@@ -39,12 +37,10 @@ function ProfileHeader ( props ){
             setOpenCrop ( true );
         }
     };
-    const handleProfilePicture = () => {
-        setOpenProfileModal ( true )
+    const handleProfilePicture = (e) => {
+        dispatch(openImageProfileDialogue());
     }
     return (
-        <>
-            { ! openProfileModal ?
               <>
                   <HeaderContainer>
                       <BackgroundImageContainer>
@@ -96,7 +92,7 @@ function ProfileHeader ( props ){
                                           National Univeristy of Sceince and Technology
                                       </Typography>
                                   </Box>
-                                  <EditButtonContainer>
+                                  <EditButtonContainer onClick={()=>dispatch(openEditForm())}>
                                       <EditButton/>
                                   </EditButtonContainer>
                               </ProfileSection2Container>
@@ -110,9 +106,8 @@ function ProfileHeader ( props ){
                               </OutlinedButton>
                           </ButtonContainer>
                       </BackgroundImageContainer>
-                      <ProfileImage src={ profilePic } onClick={ handleProfilePicture }/>
+                      <ProfileImage src={ profileImage } onClick={ handleProfilePicture }/>
                   </HeaderContainer>
-              </> : <ProfileDialouge/> }
         </>
     );
 }

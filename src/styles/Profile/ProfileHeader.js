@@ -3,6 +3,7 @@ import { Colors } from "../Theme";
 import Button from "@mui/material/Button";
 import "@fontsource/alata";
 import ApartmentIcon from "@mui/icons-material/Apartment";
+import { StylesConfig } from 'react-select';
 
 export const HeaderContainer = styled ( Box ) ( ( { theme } ) => (
     {
@@ -88,11 +89,17 @@ export const ProfileAddress = styled ( Box ) ( ( { theme } ) => (
 ) );
 export const ProfileSection2Container= styled ( Box ) ( ( { theme } ) => (
     {
-        margin : '2rem 2rem' ,
+        margin : '2rem' ,
         display : 'flex' ,
         flexDirection : 'row' ,
         alignItems : 'center' ,
         justifyContent : 'flex-start' ,
+        [ theme.breakpoints.down ( "md" ) ] : {
+            margin : '2rem' ,
+            flexDirection:"column",
+            flexWrap:'wrap',
+            paddingBottom:"2rem"
+        }
     }
 ) );
 export const CompanyImage = styled ( "img" ) ( ( { theme } ) => (
@@ -143,3 +150,33 @@ export const OutlinedButton = styled ( Button ) ( ( { theme } ) => (
             color:"white",
         }
     }));
+
+export const customStyles = {
+    control: (base, state) => ({
+        ...base,
+        background: "#white",
+        // match with the menu
+        borderRadius: state.isFocused ? "3px 3px 0 0" : 3,
+        // Overwrittes the different states of border
+        borderColor: state.isFocused ? "red" : "purple",
+        // Removes weird border around container
+        boxShadow: state.isFocused ? null : null,
+        "&:hover": {
+            // Overwrittes the different states of border
+            borderColor: state.isFocused ? "red" : "blue"
+        }
+    }),
+    menu: base => ({
+        ...base,
+        // override border radius to match the box
+        borderRadius: 0,
+        backgroundColor: "white",
+        // kill the gap
+        marginTop: 0
+    }),
+    menuList: base => ({
+        ...base,
+        // kill the white space on first and last option
+        padding: 0
+    })
+};

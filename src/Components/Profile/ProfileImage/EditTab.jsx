@@ -1,13 +1,16 @@
-import React,{useState} from 'react';
+import React , { useState } from 'react';
 import { Box } from "@mui/material";
 import { useDispatch , useSelector } from "react-redux";
 import Button from "@mui/material/Button";
-import { setProfileImage } from "../../../features/user/userSlice";
+import { closeImageProfileDialogue , setProfileImage } from "../../../features/user/userSlice";
+import { useNavigate } from "react-router-dom";
+import ToastBox from "../../shared/ToastContainer";
+import { toast } from "react-toastify";
 
 function EditTab ( props ){
-    const {profileImage} =  useSelector( state => state.user );
-    const [file,setFile]= useState ( '' );
-    const dispatch = useDispatch();
+    const { profileImage } = useSelector ( state => state.user );
+    const [ file , setFile ] = useState ( '' );
+    const dispatch = useDispatch ();
     const handleChange = ( e ) => {
         const file = e.target.files[ 0 ];
         if ( file ) {
@@ -16,45 +19,48 @@ function EditTab ( props ){
         }
     }
     const uploadImage = () => {
+        toast('Profile Image Updated');
+        dispatch ( closeImageProfileDialogue () );
         dispatch ( setProfileImage ( URL.createObjectURL ( file ) ) )
     }
     return (
         <>
-            <Box sx={{
-                display:'flex',
+            <ToastBox/>
+            <Box sx={ {
+                display : 'flex' ,
 
-            }}>
-                <Box sx={{
-                    width:'100%',
-                    display:'flex',
-                    justifyContent:'center',
-                    alignItems:'center',
-                    padding:'1rem',
-                }}>
-                    <img src={ profileImage } style={{
-                        width:'11rem',
-                        height:'11rem',
-                        borderRadius:'50%',
-                        border:'1px solid #e6e6e6',
-                        objectFit:'cover',
-                    }} alt={'Profile Image'}/>
+            } }>
+                <Box sx={ {
+                    width : '100%' ,
+                    display : 'flex' ,
+                    justifyContent : 'center' ,
+                    alignItems : 'center' ,
+                    padding : '1rem' ,
+                } }>
+                    <img src={ profileImage } style={ {
+                        width : '11rem' ,
+                        height : '11rem' ,
+                        borderRadius : '50%' ,
+                        border : '1px solid #e6e6e6' ,
+                        objectFit : 'cover' ,
+                    } } alt={ 'Profile Image' }/>
                 </Box>
             </Box>
-            <Box sx={{
-                display:'flex',
-                flexDirection:'column',
-                flexWrap:'wrap',
-            }}>
-                <Box sx={{
-                    width:'100%',
-                    display:'flex',
-                    justifyContent:'center',
-                    alignItems:'center',
-                    padding:'1rem',
-                }}>
-                    <input type="file" onChange={handleChange}/>
+            <Box sx={ {
+                display : 'flex' ,
+                flexDirection : 'column' ,
+                flexWrap : 'wrap' ,
+            } }>
+                <Box sx={ {
+                    width : '100%' ,
+                    display : 'flex' ,
+                    justifyContent : 'center' ,
+                    alignItems : 'center' ,
+                    padding : '1rem' ,
+                } }>
+                    <input type="file" onChange={ handleChange }/>
                 </Box>
-                <Button variant={'contained'} color={'primary'} onClick={uploadImage}>
+                <Button variant={ 'contained' } color={ 'primary' } onClick={ uploadImage }>
                     Upload
                 </Button>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileComponent from "../Components/Profile";
+import ProfileComponent from "../Components/Profile/Header";
 
 function Profile ( props ){
     return (

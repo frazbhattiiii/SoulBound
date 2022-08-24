@@ -6,44 +6,42 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
-import EditTab from "./EditTab";
-import { useNavigate } from "react-router-dom";
+import EditForm from "./EditForm";
 import { useDispatch , useSelector } from "react-redux";
-import { closeImageProfileDialogue } from "../../../features/user/userSlice";
+import { closeEditFrom } from "../../../features/user/userSlice";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ImageChangeDialogue() {
+export default function EditProfileForm() {
     const [open, setOpen] = React.useState(true);
     const dispatch = useDispatch();
-    const {imageProfileDialogue} = useSelector(state => state.user);
-    const navigate = useNavigate();
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    const {editForm} = useSelector(state => state.user);
 
     const handleClose = () => {
-        dispatch(closeImageProfileDialogue());
+        dispatch(closeEditFrom());
     };
 
     return (
         <>
-            {imageProfileDialogue ?
+            {editForm ?
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
                 keepMounted
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
+                sx={{
+                    scrollBehavior: 'smooth',
+                }}
             >
-                <DialogTitle>{"Profile Image Changings"}</DialogTitle>
+                <DialogTitle>{"Edit Profile"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        Profile Image Settings
+                        Editing Profile
                     </DialogContentText>
-                    <EditTab/>
+                    <EditForm/>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} variant='outlined'>Cancel</Button>
