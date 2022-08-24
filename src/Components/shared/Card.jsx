@@ -8,7 +8,7 @@ import { SmallImage }     from "../../styles/General";
 
 export default function CustomCard ( props ) {
     return (
-        <Card sx={ { maxWidth : 470 , margin : "0 2rem 1rem .5rem" } }>
+        <Card sx={ { maxWidth : 470 , height:'15rem', margin : "0 2rem 1rem .5rem" } }>
             <CardActionArea>
                 <SmallImage src={ props.image } size='80'/>
                 <CardContent>

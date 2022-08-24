@@ -6,6 +6,7 @@ const StyledIconButton = styled(IconButton)`
   width:3rem;
   height:3rem;
   border-radius:2rem;
+  margin-top: .5rem;
   background:#ccc;
   :hover{
     background:#999999;

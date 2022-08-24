@@ -11,7 +11,6 @@ function ProfileComponent ( props ){
             <ProfileHeader/>
             <EditProfileForm/>
             <ImageChangeDialogue/>
-
         </>
     );
 }
