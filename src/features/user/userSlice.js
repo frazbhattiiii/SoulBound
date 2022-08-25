@@ -10,6 +10,12 @@ const initialState = {
         education:'National Univeristy of Sceince and Technology',
         backgroundImage:backgroundPic,
         profileImage:profilePic,
+        contactInfo:{
+            email:'bhattifraz@gmail.com',
+            phone:'+92-3-567-890-123',
+            website:'www.bhattifraz.com',
+            twitter:'@bhattifraz',
+        },
 }
 const userSlice = createSlice ( {
                                     name : 'user' ,
@@ -28,11 +34,14 @@ const userSlice = createSlice ( {
                                             state.company = payload.Company;
                                             state.country = payload.label;
                                             state.education = payload.Education;
+                                        },
+                                        saveContactInfo : (state,{payload}) => {
+                                            state.contactInfo = payload;
                                         }
                                     } ,
                                     extraReducers : {
 
                                     } ,
                                 } )
-export const { setBackgroundImage,setProfileImage,setUserInfo } = userSlice.actions;
+export const { setBackgroundImage,setProfileImage,setUserInfo,saveContactInfo } = userSlice.actions;
 export default userSlice.reducer

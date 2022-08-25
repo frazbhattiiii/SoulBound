@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
     imageProfileDialogue:false,
     editForm:false,
+    contactForm:false,
+    contactInformation:false,
 }
 const appSlice = createSlice ( {
                                     name : 'app/general' ,
@@ -19,11 +21,27 @@ const appSlice = createSlice ( {
                                         },
                                         closeImageProfileDialogue : ( state ) => {
                                             state.imageProfileDialogue = false;
+                                        },
+                                        openContactForm : ( state ) => {
+                                            state.contactForm = true;
+                                        },
+                                        closeContactForm : ( state ) => {
+                                            state.contactForm = false;
+                                        },
+                                        openContactInformation : ( state ) => {
+                                            state.contactInformation = true;
+
+                                        },
+                                        closeContactInformation : ( state ) => {
+                                            state.contactInformation = false;
                                         }
                                     } ,
                                     extraReducers : {
 
                                     } ,
                                 } )
-export const {openEditForm,closeEditFrom,openImageProfileDialogue,closeImageProfileDialogue } = appSlice.actions;
+export const {openEditForm,closeEditFrom,openImageProfileDialogue,closeImageProfileDialogue,
+    openContactForm,closeContactForm,
+openContactInformation, closeContactInformation
+} = appSlice.actions;
 export default appSlice.reducer

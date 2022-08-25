@@ -16,8 +16,9 @@ import { useDispatch , useSelector } from "react-redux";
 import {
     setBackgroundImage , setProfileImage
 } from "../../../features/user/userSlice";
-import { openEditForm , openImageProfileDialogue } from "../../../features/general/appSlice";
-import Button from "@mui/material/Button";
+import {
+    openContactInformation , openEditForm , openImageProfileDialogue
+} from "../../../features/general/appSlice";
 import EditButton from "../../shared/EditButton";
 import { EditButtonContainer } from "../../../styles/General";
 
@@ -74,7 +75,7 @@ function ProfileHeader ( props ){
                                         { location } , <span
                                         style={ { color : 'green' , fontStyle : 'italic' } }>{ country }</span>
                                         <span style={ { paddingLeft : ".5rem" } }>
-                                <Link to={ '/profile' }>
+                                <Link to={ '/profile' } onClick={()=>dispatch(openContactInformation())}>
                                     Contact info
                                 </Link>
                             </span>

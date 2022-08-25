@@ -3,6 +3,7 @@ import NavBar from "../../NavBar";
 import ProfileHeader from "./ProfileHeader";
 import EditProfileForm from "./EditProfileForm";
 import ImageChangeDialogue from "../ProfileImage/ProfileDialouge";
+import Contact from "../Contact";
 
 function ProfileComponent ( props ){
     return (
@@ -11,6 +12,7 @@ function ProfileComponent ( props ){
             <ProfileHeader/>
             <EditProfileForm/>
             <ImageChangeDialogue/>
+            <Contact/>
         </>
     );
 }

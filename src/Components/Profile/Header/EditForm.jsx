@@ -1,6 +1,5 @@
 import React , { useState , useMemo } from 'react';
 import { Box , TextField } from "@mui/material";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import ToastBox from "../../shared/ToastContainer";
 import { toast } from "react-toastify";
@@ -8,8 +7,9 @@ import { closeEditFrom } from "../../../features/general/appSlice";
 import { useDispatch , useSelector } from "react-redux";
 import Select from 'react-select';
 import countryList from 'react-select-country-list'
-import { customStyles } from "../../../styles/Profile/ProfileHeader";
+import { customStyles , FormContainer , PurpleButton } from "../../../styles/Profile/ProfileHeader";
 import { setUserInfo } from "../../../features/user/userSlice";
+
 
 function EditForm ( props ){
     const {name,location,company,country,tagline,education} = useSelector ( state => state.user );
@@ -41,55 +41,36 @@ function EditForm ( props ){
     return (
         <>
             <ToastBox/>
-            <Box style={ {
-                display : 'flex' ,
-                flexDirection : "column" ,
-                padding : '1rem' ,
-                gap : '2'
-            } }>
+            <FormContainer>
                 <TextField id="outlined-name"
                            label="Name"
                            value={ Name }
                            variant="outlined"
                            onChange={ ( e ) => setName ( e.target.value ) }
-                           sx={ {
-                               width : '100%' ,
-                               marginBottom : '1rem'
-                           } }
+                           sx={ { width : '100%' , marginBottom : '1rem' } }
                 />
                 <TextField id="outlined-basics"
                            label="Tag Line"
                            value={ Tagline }
                            variant="outlined"
                            onChange={ ( e ) => setTagline ( e.target.value ) }
-                           sx={ {
-                               width : '100%' ,
-                               marginBottom : '1rem'
-                           } }
+                           sx={ { width : '100%' , marginBottom : '1rem' } }
                 />
 
-                <Stack direction={ 'row' } justifyContent={ 'space-between' } alignItems={ 'center' } sx={ {
-                    gap : '1rem'
-                } }>
+                <Stack direction={ 'row' } justifyContent={ 'space-between' } alignItems={ 'center' } sx={ { gap : '1rem' } }>
                     <TextField id="outlined-basicing"
                                label="Company"
                                value={ Company }
                                variant="outlined"
                                onChange={ ( e ) => setCompany ( e.target.value ) }
-                               sx={ {
-                                   width : '100%' ,
-                                   marginBottom : '1rem'
-                               } }
+                               sx={ { width : '100%' , marginBottom : '1rem' } }
                     />
                     <TextField id="outlined-basic"
                                label='Education'
                                value={ Education }
                                variant="outlined"
                                onChange={ ( e ) => setEducation ( e.target.value ) }
-                               sx={ {
-                                   width : '100%' ,
-                                   marginBottom : '1rem'
-                               } }
+                               sx={ { width : '100%' , marginBottom : '1rem' } }
                     />
                 </Stack>
                 <TextField id="outlined-basic"
@@ -97,29 +78,16 @@ function EditForm ( props ){
                            value={ Location }
                            variant="outlined"
                            onChange={ ( e ) => setLocation ( e.target.value ) }
-                           sx={ {
-                               width : '100%' ,
-                               marginBottom : '1rem'
-                           } }
+                           sx={ { width : '100%' , marginBottom : '1rem' } }
                 />
-                <Box sx={ {
-                    marginBottom : '1rem' ,
-                    height : "4rem" ,
-                } }>
+                <Box sx={ { marginBottom : '1rem' , height : "4rem" , } }>
                     <Select options={ options } value={ Country } onChange={ changeHandler } styles={ customStyles }/>
                 </Box>
-                <Button onClick={ handleSubmit } sx={ {
-                    width : '100%' ,
-                    backgroundColor : 'darkslateblue' ,
-                    color : 'white' ,
-                    '&:hover' : {
-                        backgroundColor : 'darkmagenta'
-                    }
-                } }>
+                <PurpleButton onClick={ handleSubmit }>
                     Change
-                </Button>
+                </PurpleButton>
 
-            </Box>
+            </FormContainer>
         </>
     );
 }

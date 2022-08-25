@@ -180,3 +180,41 @@ export const customStyles = {
         padding: 0
     })
 };
+
+export const FormContainer = styled ( Box ) ( ( { theme } ) => (
+    {
+        display : 'flex' ,
+        flexDirection : "column" ,
+        padding : '1rem' ,
+        gap : '2'
+    }
+));
+
+export const PurpleButton = styled ( Button ) ( ( { theme } ) => (
+    {
+        width : '100%' ,
+        backgroundColor : 'darkslateblue' ,
+        color : 'white' ,
+        '&:hover' : {
+            backgroundColor : 'darkmagenta'
+        }
+    }
+));
+export const ContactContainer = styled ( Box ) ( ( { theme } ) => (
+    {
+        display : 'flex' ,
+        flexDirection : "column" ,
+        padding : '1rem' ,
+        gap : '2',
+        [ theme.breakpoints.down ( "md" ) ] : {
+            padding:'.5rem',
+        }
+    }
+))
+export const InfoContainer = styled ( Box ) ( ( { theme } ) => (
+    {
+        display : 'flex' ,
+        padding:'1rem',
+        flexDirection : "row" ,
+    }
+));
